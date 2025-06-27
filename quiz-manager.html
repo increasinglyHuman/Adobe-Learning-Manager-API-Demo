@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALM Quiz Manager</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 400px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .instructions {
+            background: #fffacd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALM Quiz Manager</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Create/edit quiz in the ALM app</li>
+                <li>Open browser console (F12)</li>
+                <li>Type: <code>localStorage.getItem('alm_quiz_latest')</code></li>
+                <li>Copy the JSON output</li>
+                <li>Paste it below</li>
+                <li>Click "Save to Server"</li>
+                <li>Copy the generated filename</li>
+                <li>Create a file with that name in /var/www/html/alm-quiz/data/</li>
+                <li>Paste the JSON content into that file</li>
+            </ol>
+        </div>
+        
+        <h3>Quiz JSON:</h3>
+        <textarea id="quizJson" placeholder="Paste quiz JSON here..."></textarea>
+        
+        <button onclick="processQuiz()">Generate Filename & Instructions</button>
+        
+        <div id="output"></div>
+    </div>
+    
+    <script>
+        function processQuiz() {
+            const json = document.getElementById('quizJson').value;
+            const output = document.getElementById('output');
+            
+            try {
+                const quiz = JSON.parse(json);
+                const courseId = quiz.courseId || 'default';
+                const filename = `quiz_${courseId.replace(/[^a-zA-Z0-9_-]/g, '_')}.json`;
+                
+                output.innerHTML = `
+                    <h3>Success!</h3>
+                    <p><strong>Filename:</strong> <code>${filename}</code></p>
+                    <p><strong>Full path:</strong> <code>/var/www/html/alm-quiz/data/${filename}</code></p>
+                    <h4>SSH Commands:</h4>
+                    <pre>
+ssh -i ~/.ssh/poqpoq2025.pem ubuntu@52.88.234.65
+sudo mkdir -p /var/www/html/alm-quiz/data
+sudo nano /var/www/html/alm-quiz/data/${filename}
+# Paste the JSON and save (Ctrl+X, Y, Enter)
+sudo chown www-data:www-data /var/www/html/alm-quiz/data/${filename}
+                    </pre>
+                    <h4>Formatted JSON:</h4>
+                    <pre>${JSON.stringify(quiz, null, 2)}</pre>
+                `;
+            } catch (e) {
+                output.innerHTML = '<p style="color: red;">Invalid JSON: ' + e.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

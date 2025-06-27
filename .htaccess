@@ -1,0 +1,10 @@
+Options +ExecCGI
+AddHandler cgi-script .py
+
+# Enable PHP execution
+AddType application/x-httpd-php .php
+AddHandler application/x-httpd-php .php
+
+RewriteEngine On
+RewriteRule ^api/quiz/save/(.*)$ quiz-api.py/save/$1 [L]
+RewriteRule ^api/quiz/load/(.*)$ quiz-api.py/load/$1 [L]

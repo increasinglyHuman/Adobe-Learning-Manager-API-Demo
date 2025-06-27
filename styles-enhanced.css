@@ -1,0 +1,460 @@
+/* Kawaii Quiz Enhanced Styles v5.0 */
+
+:root {
+    --primary: #FF69B4;
+    --primary-dark: #FF1493;
+    --secondary: #87CEEB;
+    --success: #98FB98;
+    --error: #FFB6C1;
+    --warning: #FFDAB9;
+    --bg-light: #FFF0F5;
+    --text-dark: #2C3E50;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFF0F5 0%, #E6E6FA 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Loading Screen */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.kawaii-loader {
+    text-align: center;
+}
+
+.kawaii-loader svg {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.blink {
+    animation: blink 3s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { opacity: 1; }
+    95% { opacity: 0; }
+}
+
+.bounce-animation {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Quiz Builder */
+.quiz-builder {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.builder-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.builder-header h1 {
+    color: var(--primary);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.course-name {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.course-name strong {
+    color: var(--primary-dark);
+}
+
+.course-overview {
+    background: var(--bg-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: left;
+    font-style: italic;
+}
+
+/* AI Controls */
+.ai-controls {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.auto-generate-section {
+    text-align: center;
+}
+
+.auto-generate-section h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.progress-text {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-danger, .btn-test {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: #6BB6D6;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: var(--error);
+    color: var(--text-dark);
+}
+
+.btn-danger:hover {
+    background: #FF8FA3;
+}
+
+.btn-test {
+    background: var(--success);
+    color: var(--text-dark);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Questions Container */
+.questions-list {
+    margin: 30px 0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+.question-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.question-number {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.btn-remove {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: var(--error);
+    color: var(--text-dark);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+    background: #FF6B6B;
+    transform: rotate(90deg);
+}
+
+/* Question Inputs */
+.question-text {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.question-text:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.answers {
+    margin-left: 20px;
+}
+
+.answer-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.answer-row.correct {
+    background: var(--success);
+}
+
+.answer-row input[type="radio"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.answer-text {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.answer-row.correct .answer-text {
+    border-color: #4CAF50;
+}
+
+/* Manual Input */
+.manual-input {
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.manual-input summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.manual-input-content {
+    margin-top: 15px;
+}
+
+.manual-input-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Actions Section */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.test-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 6px var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease;
+    z-index: 1000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.notification.fade-out {
+    animation: fadeOut 0.3s ease;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.notification-success {
+    border-left: 4px solid var(--success);
+}
+
+.notification-error {
+    border-left: 4px solid var(--error);
+}
+
+.notification-info {
+    border-left: 4px solid var(--secondary);
+}
+
+.notification .icon {
+    font-size: 20px;
+}
+
+/* Learner View */
+.learner-view {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.learner-view h1 {
+    color: var(--primary);
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+.welcome-message {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow);
+    margin-bottom: 30px;
+}
+
+.welcome-message h2 {
+    color: var(--primary-dark);
+    margin-top: 15px;
+}
+
+.btn-large {
+    font-size: 20px;
+    padding: 15px 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-builder {
+        padding: 10px;
+    }
+    
+    .builder-header h1 {
+        font-size: 2em;
+    }
+    
+    .question-card {
+        padding: 15px;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+}

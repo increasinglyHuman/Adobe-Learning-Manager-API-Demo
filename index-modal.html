@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kawaii Quiz - Modal Version</title>
+    <link rel="stylesheet" href="styles-modal.css">
+    <style>
+        /* EMERGENCY DARK THEME OVERRIDE */
+        /* Nuclear option - target ALL divs in modal */
+        #modal div {
+            background-color: transparent !important;
+        }
+        
+        /* Then set specific dark backgrounds */
+        #modal > div > div,
+        #modal .modal-content,
+        #modal .modal-body,
+        #modal .modal-dialog,
+        #modal .modal-dialog > div,
+        #modal .quiz-builder-card,
+        #modal .question-editor {
+            background: #1a1a1a !important;
+            background-color: #1a1a1a !important;
+        }
+        
+        /* Force any white backgrounds to be dark */
+        #modal [style*="background: white"],
+        #modal [style*="background-color: white"],
+        #modal [style*="background:#fff"],
+        #modal [style*="background-color:#fff"],
+        #modal [style*="background: rgb(255"],
+        #modal [style*="background-color: rgb(255"] {
+            background: #1a1a1a !important;
+            background-color: #1a1a1a !important;
+        }
+        
+        /* White text but NOT on buttons */
+        #modal *:not(button):not(.btn) {
+            color: #ffffff !important;
+        }
+        
+        /* Form inputs */
+        #modal input, #modal textarea {
+            background: #2a2a2a !important;
+            border: 1px solid #444 !important;
+            color: #fff !important;
+        }
+        
+        /* Restore button colors */
+        #modal button,
+        #modal .btn {
+            /* Let buttons use their original styles */
+            background: initial;
+            color: initial;
+        }
+        
+        #modal .btn-primary {
+            background: #FF69B4 !important;
+            color: white !important;
+        }
+        
+        #modal .btn-success {
+            background: #4CAF50 !important;
+            color: white !important;
+        }
+        
+        /* Green checkmark for correct answer */
+        #modal .mark-correct-btn.selected,
+        #modal .correct-answer .mark-correct-btn,
+        #modal .checkmark,
+        #modal .fa-check,
+        #modal .correct-indicator {
+            background: #4CAF50 !important;
+            color: white !important;
+        }
+        
+        /* Make sure ALL buttons and nav controls are visible */
+        #modal .editor-footer,
+        #modal .modal-footer,
+        #modal .action-buttons,
+        #modal .navigation-controls,
+        #modal .nav-buttons,
+        #modal .editor-controls,
+        #modal .quiz-navigation {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: flex !important;
+            background: #000000 !important;  /* Pure black */
+            padding: 15px !important;
+            gap: 10px !important;
+            justify-content: space-between !important;
+            border: none !important;
+        }
+        
+        #modal .editor-footer button,
+        #modal .modal-footer button,
+        #modal .action-buttons button,
+        #modal .btn-save,
+        #modal .btn-cancel,
+        #modal .btn-prev,
+        #modal .btn-next,
+        #modal .btn-delete,
+        #modal .btn-save-all,
+        #modal button[class*="nav"],
+        #modal button[class*="arrow"] {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: inline-block !important;
+        }
+        
+        /* Style the save button */
+        #modal .btn-save,
+        #modal button[type="submit"] {
+            background: #4CAF50 !important;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 5px !important;
+            border: none !important;
+        }
+        
+        #modal .btn-cancel {
+            background: #666 !important;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 5px !important;
+            border: none !important;
+        }
+        
+        /* Navigation button styles */
+        #modal .btn-prev,
+        #modal .btn-next,
+        #modal button[class*="arrow"] {
+            background: #333 !important;
+            color: white !important;
+            padding: 8px 15px !important;
+            border-radius: 5px !important;
+            border: 1px solid #555 !important;
+            font-size: 18px !important;
+        }
+        
+        #modal .btn-delete {
+            background: #d32f2f !important;
+            color: white !important;
+            padding: 8px 15px !important;
+            border-radius: 5px !important;
+            border: none !important;
+        }
+        
+        #modal .btn-save-all {
+            background: #2196F3 !important;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 5px !important;
+            border: none !important;
+        }
+        
+        /* Brutalist Navigation Styles */
+        .brutalist-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            background: #000000 !important;  /* Pure black */
+            padding: 20px !important;
+            padding-bottom: 40px !important; /* Extra space for tooltips */
+            border: none !important;  /* No border */
+            position: relative !important;
+            overflow: visible !important; /* Allow tooltips to show */
+        }
+        
+        .nav-group {
+            display: flex !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
+        
+        .btn-brutalist {
+            background: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: none !important;
+            outline: none !important;
+            padding: 10px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            position: relative !important;
+            overflow: visible !important;
+            box-shadow: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+        }
+        
+        /* NUCLEAR OVERRIDE - Remove ALL backgrounds from navigation buttons */
+        #modal .brutalist-nav button,
+        #modal .btn-brutalist,
+        #modal .btn-delete,
+        #modal .btn-save,
+        #modal .btn-next,
+        #modal .btn-prev,
+        #modal .btn-save-all,
+        .brutalist-nav button,
+        .btn-brutalist {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        
+        /* Remove any inline styles */
+        #modal .brutalist-nav button[style] {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        .btn-brutalist:hover:not(:disabled) {
+            transform: scale(1.1) !important;  /* Scale up on hover */
+        }
+        
+        .btn-brutalist:disabled {
+            opacity: 0.3 !important;
+            cursor: not-allowed !important;
+        }
+        
+        .icon-brutal {
+            width: 48px !important;  /* Smaller to fit in one row */
+            height: 48px !important; /* Smaller to fit in one row */
+            /* No filter - use original white icons */
+            display: block !important;
+        }
+        
+        .icon-flip {
+            transform: scaleX(-1) !important;
+        }
+        
+        /* Color the icons on hover */
+        .btn-delete:hover:not(:disabled) .icon-brutal {
+            filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(7481%) hue-rotate(358deg) brightness(96%) contrast(108%) drop-shadow(0 0 15px #ff3333) !important;
+            /* Makes icon bright red */
+        }
+        
+        .btn-save:hover:not(:disabled) .icon-brutal {
+            filter: brightness(0) saturate(100%) invert(68%) sepia(57%) saturate(5239%) hue-rotate(79deg) brightness(118%) contrast(119%) drop-shadow(0 0 15px #4CAF50) !important;
+            /* Makes icon bright green */
+        }
+        
+        .btn-save-all:hover:not(:disabled) .icon-brutal {
+            filter: brightness(0) saturate(100%) invert(38%) sepia(93%) saturate(1457%) hue-rotate(196deg) brightness(100%) contrast(96%) drop-shadow(0 0 15px #2196F3) !important;
+            /* Makes icon bright blue */
+        }
+        
+        .btn-prev:hover:not(:disabled) .icon-brutal,
+        .btn-next:hover:not(:disabled) .icon-brutal {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) !important;
+            /* Keep arrows white with glow */
+        }
+        
+        /* LAST RESORT - Override everything with maximum specificity */
+        html body #modal div.brutalist-nav button.btn-brutalist {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+        
+        /* Remove title attribute to prevent browser tooltips */
+        .btn-brutalist {
+            pointer-events: all;
+        }
+        
+        /* Adjust nav group spacing for single row */
+        .brutalist-nav {
+            flex-wrap: nowrap !important;
+        }
+        
+        .nav-group {
+            flex-shrink: 0 !important;
+        }
+        
+        .nav-group.center {
+            gap: 10px !important; /* Smaller gap between center buttons */
+        }
+        
+        /* Checkmark icon sizing */
+        .icon-check {
+            width: 48px !important;  /* Same size as other icons */
+            height: 48px !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+        
+        /* Remove all backgrounds from correct answer buttons */
+        #modal .mark-correct-btn,
+        #modal .mark-correct-btn.selected {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            min-width: unset !important;
+            border-radius: 0 !important;
+        }
+        
+        #modal .mark-correct-btn:hover {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        /* Make the circle for unselected state larger */
+        #modal .mark-correct-btn:not(.selected) {
+            font-size: 48px !important;
+            line-height: 48px !important;
+            color: #666 !important;
+        }
+        
+        /* Fix tooltips */
+        .btn-brutalist[title] {
+            position: relative !important;
+        }
+        
+        /* Background watermark idea - giant transparent icon */
+        .brutalist-nav::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 200px)); /* Move up 200px */
+            width: 900px;  /* 3x larger */
+            height: 900px; /* 3x larger */
+            background-image: url('icons/skullbk.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08; /* More visible but still subtle */
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Ensure buttons are above watermark */
+        .nav-group {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- App content will be injected here -->
+    </div>
+    
+    <script src="appi-modal-quiz.js"></script>
+</body>
+</html>

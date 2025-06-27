@@ -1,0 +1,98 @@
+/* EMERGENCY OVERRIDE CSS FOR QUIZ MODAL */
+
+/* Target the white modal content box */
+#modal .modal-content,
+#modal .modal-dialog .modal-content,
+#modal .modal-body,
+#modal .quiz-builder-card,
+#modal .question-editor,
+#modal [style*="background: white"],
+#modal [style*="background-color: white"],
+#modal [style*="background:#fff"],
+#modal [style*="background-color:#fff"] {
+    background: #1a1a1a !important;
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+/* Target any div that might have inline white background */
+#modal div[style*="background"],
+#modal div[class*="card"],
+#modal div[class*="content"] {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+/* Force all text to be white */
+#modal,
+#modal *,
+#modal p,
+#modal label,
+#modal h1,
+#modal h2,
+#modal h3,
+#modal span,
+#modal div {
+    color: #ffffff !important;
+}
+
+/* Keep the question header pink */
+#modal h2:first-child,
+#modal .question-header {
+    color: #FF69B4 !important;
+}
+
+/* Style form inputs */
+#modal input[type="text"],
+#modal textarea,
+#modal .form-control {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+#modal input[type="text"]:focus,
+#modal textarea:focus,
+#modal .form-control:focus {
+    background-color: #333 !important;
+    border-color: #FF69B4 !important;
+    color: #ffffff !important;
+    outline: none !important;
+}
+
+/* Style the answer options */
+#modal .answer-option,
+#modal .answer-editor-row {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+#modal .answer-option:hover,
+#modal .answer-editor-row:hover {
+    background-color: #333 !important;
+    border-color: #FF69B4 !important;
+}
+
+/* Selected/correct answer */
+#modal .answer-option.selected,
+#modal .answer-editor-row.correct-answer {
+    background-color: #2d5a2d !important;
+    border-color: #4CAF50 !important;
+}
+
+/* Override any Bootstrap white backgrounds */
+#modal .bg-white,
+#modal .bg-light {
+    background-color: #1a1a1a !important;
+}
+
+#modal .text-dark {
+    color: #ffffff !important;
+}
+
+/* Nuclear option for stubborn white backgrounds */
+#modal > div > div > div {
+    background: #1a1a1a !important;
+    background-color: #1a1a1a !important;
+}
