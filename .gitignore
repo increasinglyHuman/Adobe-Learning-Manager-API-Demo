@@ -83,6 +83,58 @@ user-uploads/
 _archive/
 archival/
 
+# Test files
+test-*.php
+test-*.html
+*-test-*.php
+*-diagnostic.php
+*-debug-*.php
+
+# Development/old versions
+app.js
+app-enhanced.js
+app-fixed.js
+app-modal-quiz.js
+app-modal-quiz-dark.js
+app-modal-quiz-styles.js
+index.html
+index-alm.html
+index-from-server.html
+index-modal-local.html
+
+# Documentation files (keeping only README.md)
+*.md
+!README.md
+
+# Shell scripts
+*.sh
+
+# Server/development files
+server.js
+alm-quiz-server.js
+anthropic-proxy-example.js
+*.py
+
+# Utility scripts
+dark-mode-patch.js
+inject-dark-mode.js
+save-quiz.js
+simple-save.js
+
+# Old styles
+styles.css
+styles-enhanced.css
+
+# Other files to ignore
+info.php
+root-index.php
+find-api-key.php
+callback.html
+check-localstorage.html
+quiz-manager.html
+simple-token-test.php
+icons-128/
+
 # Token files
 tokens/
 *.token
