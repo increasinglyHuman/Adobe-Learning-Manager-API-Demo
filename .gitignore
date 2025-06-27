@@ -135,6 +135,11 @@ quiz-manager.html
 simple-token-test.php
 icons-128/
 
+# xAPI related files
+*xapi*.php
+generate-xapi-token.php
+xapi-client.php
+
 # Token files
 tokens/
 *.token
