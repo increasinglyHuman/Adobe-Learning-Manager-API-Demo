@@ -169,6 +169,7 @@ Adobe Learning Manager (ALM)
 ### Documentation & Story
 - **LinkedIn Article**: [API Awakening: How We Built a Mind-Reading Quiz Machine in One Week](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)
 - **Video Demo**: [LinkedIn Post with System Walkthrough](https://www.linkedin.com/feed/update/urn:li:activity:7348769312381292545/)
+- **Direct Video**: [PopQuiz Native Extension Demo (443MB)](https://p0qp0q.com/PopQuizNativeExtension.mp4) - Full system demonstration
 - **Blog Series**: Complete learning journey in `/archival/blog-post-*.md`
 - **Repository**: This project structure and code
 - **Author**: [Dr. Allen Partridge](https://www.linkedin.com/in/doctorpartridge/)

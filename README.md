@@ -4,7 +4,7 @@
 
 > *The mind-reading quiz system that generates contextual questions from your actual course content*
 
-📖 **[Read the Full Journey Story →](PROJECT-JOURNEY.md)** | 📰 **[LinkedIn Article](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)** | 🎥 **[Video Demo](https://www.linkedin.com/feed/update/urn:li:activity:7348769312381292545/)**
+📖 **[Read the Full Journey Story →](PROJECT-JOURNEY.md)** | 📰 **[LinkedIn Article](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)** | 🎥 **[Video Demo](https://p0qp0q.com/PopQuizNativeExtension.mp4)**
 
 ![Quiz Generation Demo](screenshots/Screenshot%20from%202025-06-27%2009-41-09.png)
 
