@@ -5,6 +5,9 @@ AddHandler cgi-script .py
 AddType application/x-httpd-php .php
 AddHandler application/x-httpd-php .php
 
+# Allow Adobe Learning Manager to embed this page in iframes
+Header always unset X-Frame-Options
+
 RewriteEngine On
 RewriteRule ^api/quiz/save/(.*)$ quiz-api.py/save/$1 [L]
 RewriteRule ^api/quiz/load/(.*)$ quiz-api.py/load/$1 [L]
