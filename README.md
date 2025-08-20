@@ -1,6 +1,10 @@
-# ALM Kawaii Quiz - AI-Powered Quiz Generation for Adobe Learning Manager
+# ALM Brutalist Quiz - AI-Powered Quiz Generation for Adobe Learning Manager
 
-🎯 **Transform your Adobe Learning Manager courses with AI-powered, contextual quiz generation in seconds!**
+🎯 **From "What's an API?" to AI-powered quiz machine in 7 days!**
+
+> *The mind-reading quiz system that generates contextual questions from your actual course content*
+
+📖 **[Read the Full Journey Story →](PROJECT-JOURNEY.md)** | 📰 **[LinkedIn Article](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)**
 
 ![Quiz Generation Demo](screenshots/Screenshot%20from%202025-06-27%2009-41-09.png)
 
@@ -175,9 +179,16 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Architecture Overview](docs/ARCHITECTURE.md)
 
+## ✅ Recent Fixes (2025-08-20)
+
+- **Fixed**: X-Frame-Options blocking iframe embedding in Firefox
+- **Status**: Fully functional in Adobe Learning Manager
+- **Deployment**: Live at https://p0qp0q.com/alm-quiz/
+
 ## 🐛 Known Issues
 
-- CORS restrictions require backend proxy for API calls
+- ~~CORS restrictions require backend proxy for API calls~~ ✅ Fixed
+- ~~X-Frame-Options blocking iframe embedding~~ ✅ Fixed  
 - Quiz state persists in localStorage (clear if needed)
 - Maximum 10 questions per generation (Haiku limitation)
 
