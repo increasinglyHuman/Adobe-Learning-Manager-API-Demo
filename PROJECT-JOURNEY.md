@@ -6,7 +6,9 @@
 
 In just **one week**, this project transformed from API confusion to a production AI-powered quiz system for Adobe Learning Manager. This is the story of how approaching complex problems with "kindergarten-level" curiosity led to breakthrough understanding.
 
-**Published Article**: [API Awakening: How We Built a Mind-Reading Quiz Machine in One Week](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)
+**Published Content**:
+- [LinkedIn Article: API Awakening: How We Built a Mind-Reading Quiz Machine in One Week](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)
+- [LinkedIn Post with Video Demonstration](https://www.linkedin.com/feed/update/urn:li:activity:7348769312381292545/) - Includes video walkthrough of the working solution
 
 ## 🚀 What We Built
 
@@ -26,24 +28,29 @@ const quiz = await generateQuiz(content);
 
 ## 📖 The Journey: Blog Post Series
 
-The learning journey was documented in a series of blog posts (found in `/archival/`):
+The complete learning journey was documented in real-time through a series of blog posts, showing the progression from confusion to mastery:
 
-1. **[Why This Old Dog is Learning New API Tricks](archival/blog-post-1-why-im-doing-this.md)**
-   - The USB cable analogy that started it all
-   - Decision to "teach like you're five"
-   - Overcoming API-phobia with kindergarten curiosity
+### The Learning Progression
 
-2. **[What the Heck is an API Anyway? (Explained with Pizza Delivery)](archival/blog-post-2-what-is-api-pizza.md)**
-   - Pizza delivery metaphors for API concepts
-   - Breaking down complex technical concepts
+**Phase 1: Frustration & Breakthrough**
+- **Moment**: Staring at API docs "like ancient Sumerian"
+- **Realization**: "If I can't understand it, maybe I'm trying to understand it wrong"
+- **Solution**: Learn like explaining to a five-year-old
 
-3. **[Admin API Principal](archival/blog-post-3-admin-api-principal.md)**
-   - Understanding Adobe Learning Manager's API structure
-   - OAuth authentication breakthroughs
+**Phase 2: Foundation Building**
+- **Pizza Metaphor**: APIs as "fancy way for computer programs to talk to each other"
+- **Key Quote**: "The only way to break a computer with an API is to hit it with a hammer"
+- **Approach**: Transform fear of errors into curiosity
 
-4. **[Victory Lap](archival/blog-post-4-victory-lap.md)**
-   - From concept to production in 7 days
-   - Lessons learned and technical wins
+**Phase 3: Real Implementation**
+- **School Principal Analogy**: Admin APIs as "principal's special powers"
+- **OAuth Breakthrough**: Discovering tokens last 7 days, not 1 hour
+- **Integration Admin**: Getting the keys to the kingdom
+
+**Phase 4: Production Success**
+- **AI Integration**: Anthropic's Claude Haiku for quiz generation  
+- **Architecture**: Self-healing OAuth with Discord monitoring
+- **Result**: Mind-reading quiz system in production
 
 ## 🎨 Design Evolution: From Kawaii to Brutalist
 
@@ -152,12 +159,28 @@ Adobe Learning Manager (ALM)
 - **Ryan Scarbrough**: Journey inspiration
 - **Green Tea**: Fuel for the journey ☕
 
-## 🔗 Links
+## 🔗 Links & Resources
 
+### Live System
 - **Live Demo**: https://p0qp0q.com/alm-quiz/
-- **Article**: [LinkedIn Publication](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)
-- **Repository**: This project structure
+- **Instructor Mode**: https://p0qp0q.com/alm-quiz?userRole=instructor
+- **Learner Mode**: https://p0qp0q.com/alm-quiz/
+
+### Documentation & Story
+- **LinkedIn Article**: [API Awakening: How We Built a Mind-Reading Quiz Machine in One Week](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/)
+- **Video Demo**: [LinkedIn Post with System Walkthrough](https://www.linkedin.com/feed/update/urn:li:activity:7348769312381292545/)
+- **Blog Series**: Complete learning journey in `/archival/blog-post-*.md`
+- **Repository**: This project structure and code
 - **Author**: [Dr. Allen Partridge](https://www.linkedin.com/in/doctorpartridge/)
+
+### Blog Post Series 
+**Published on LinkedIn:**
+1. [Why This Old Dog is Learning New API Tricks (Teaching Them Like You're Five)](https://www.linkedin.com/pulse/why-old-dog-learning-new-api-tricks-teaching-them-like-partridge-rby6c/)
+2. [How Your Favorite Pizza App is Secretly Teaching You APIs](https://www.linkedin.com/pulse/how-your-favorite-pizza-app-secretly-teaching-you-apis-partridge-czqzc/)
+3. [Meeting the Principal: Your First Real Adobe Learning Manager API Adventure](https://www.linkedin.com/pulse/meeting-principal-your-first-real-adobe-learning-api-allen-partridge-ebsfc/)
+4. [API Awakening: How We Built a Mind-Reading Quiz Machine in One Week](https://www.linkedin.com/pulse/api-awakening-how-we-built-mind-reading-quiz-machine-one-partridge-wmkwc/) *(Victory Lap)*
+
+**Archived Drafts:** Original versions in `/archival/blog-post-*.md`
 
 ---
 
